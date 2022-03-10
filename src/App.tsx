@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {FullInput} from "./components/FullInput";
 
 function App() {
     let [message, setMessage] = useState([
@@ -9,15 +9,26 @@ function App() {
         {message: 'message3'},
     ])
 
+    const addNewMessage = (newMessage: string) => {
+        console.log(newMessage);
+    }
+
+    const onClickHandlerDelete=(idMessage:number) => {
+        const changedMessageAfterDelete = message.filter((el)=> {
+            return el.message !== message[idMessage].message
+        })
+        setMessage(changedMessageAfterDelete);
+    }
+
     return (
         <div className="App">
-            <div>
-                <input/>
-                <button>+</button>
-            </div>
+            <FullInput addNewMessageInList={addNewMessage}/>
             {message.map((el, index) => {
                 return (
-                    <div key={index}>{el.message}</div>
+                    <div key={index}>
+                        <span>{el.message}</span>
+                        <button onClick={()=>onClickHandlerDelete(index)}>Delete</button>
+                    </div>
                 )
             })}
         </div>
@@ -25,3 +36,7 @@ function App() {
 }
 
 export default App;
+
+
+
+
