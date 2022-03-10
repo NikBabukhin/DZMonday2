@@ -27,7 +27,7 @@ function App() {
     const addNewMessage = () => {
         let newMessage = {message: title}
         title === ''? setMessage([...message]) : setMessage([newMessage, ...message])
-        console.log('Hi', title);
+        setTitle('')
     }
 
     return (
@@ -35,7 +35,7 @@ function App() {
             <div>
                 {/*<FullInput addNewMessageInList={addNewMessage}/>*/}
                 <div>
-                    <InputCasual onChange={onChangeHandler}/>
+                    <InputCasual value={title} onChange={onChangeHandler}/>
                     <ButtonForInputCasual addNewMessageInList={addNewMessage}/>
                 </div>
             {message.map((el, index) => {

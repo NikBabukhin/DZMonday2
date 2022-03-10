@@ -1,10 +1,11 @@
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent} from "react";
+
 type InputCasualPropsType = {
-    value?:string,
-    onChange: ()=>void
+    value:string,
+    onChange: (event: ChangeEvent<HTMLInputElement>)=>void
 }
 
-export const InputCasual = (props:any) => {
+export const InputCasual = (props:InputCasualPropsType) => {
 
     return (
         <>
