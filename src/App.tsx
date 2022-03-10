@@ -9,13 +9,14 @@ function App() {
         {message: 'message3'},
     ])
 
-    const addNewMessage = (newMessage: string) => {
-        console.log(newMessage);
+    const addNewMessage = (nameMessage: string) => {
+        let newMessage = {message: nameMessage}
+        setMessage([newMessage, ...message])
     }
 
     const onClickHandlerDelete=(idMessage:number) => {
         const changedMessageAfterDelete = message.filter((el)=> {
-            return el.message !== message[idMessage].message
+            return message.indexOf(el) !== idMessage;
         })
         setMessage(changedMessageAfterDelete);
     }
