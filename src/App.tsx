@@ -11,7 +11,7 @@ function App() {
 
     const addNewMessage = (nameMessage: string) => {
         let newMessage = {message: nameMessage}
-        setMessage([newMessage, ...message])
+        nameMessage === ''? setMessage([...message]) : setMessage([newMessage, ...message])
     }
 
     const onClickHandlerDelete=(idMessage:number) => {
